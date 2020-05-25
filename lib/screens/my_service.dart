@@ -5,6 +5,8 @@ import 'package:fixit/widget/show_how_to_user.dart';
 import 'package:fixit/widget/show_list_product.dart';
 import 'package:flutter/material.dart';
 
+import '../widget/ad_lits_product.dart';
+
 class MyService extends StatefulWidget {
   @override
   _MyServiceState createState() => _MyServiceState();
@@ -13,7 +15,7 @@ class MyService extends StatefulWidget {
 class _MyServiceState extends State<MyService> {
   // Explicit
   String login = '...';
-  Widget currentWidget =ShowListProduct();
+  Widget currentWidget = ShowListProduct();
 
   // Method
 
@@ -51,10 +53,11 @@ class _MyServiceState extends State<MyService> {
       title: Text('สมัครเป็นช่าง'),
       subtitle: Text('New Product Database'),
       onTap: () {
-        setState(() {
-          currentWidget = AddListProduct();
-        });
         Navigator.of(context).pop();
+        MaterialPageRoute route = MaterialPageRoute(
+          builder: (context) => AddListProduct(),
+        );
+        Navigator.push(context, route);
       },
     );
   }
